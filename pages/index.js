@@ -6,3 +6,6 @@ export * from './login.page';
 export * from './registration.page';
 export * from './editor.page';
 export * from './article.page';
+export * from './header';
+export * from './base.page';
+export * from './settings.page';

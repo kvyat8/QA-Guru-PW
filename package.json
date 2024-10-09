@@ -4,14 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-     "test": "npx playwright test"
+    "test": "npx playwright test",
+    "allureOpen": "allure serve results/",
+    "allureGenerete": "allure generate"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@faker-js/faker": "^9.0.1",
-    "@playwright/test": "^1.46.1",
-    "@types/node": "^22.5.0"
+    "@playwright/test": "^1.48.0",
+    "@types/node": "^22.5.0",
+    "allure-playwright": "^3.0.4"
   }
 }

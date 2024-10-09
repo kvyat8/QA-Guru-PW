@@ -9,7 +9,11 @@ export class ArticlePage extends BasePage {
         this.editArticleButton = this.page.getByRole('button', { name: 'Edit Article' }).first(),
         this.deleteArticleButton = this.page.getByRole('button', { name: 'Delete Article' }).first(),
         this.articleCommentField = this.page.getByPlaceholder('Write a comment...'),
-        this.postCommentButton = this.page.getByRole('button', { name: 'Post Comment' })
+        this.postCommentButton = this.page.getByRole('button', { name: 'Post Comment' }),
+        this.articleTitle = this.page.getByRole('heading'),
+        this.articleText = this.page.getByRole('main')
+
+        
 
     }
 
