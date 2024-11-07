@@ -15,9 +15,12 @@ test('Регистрация', async ({ page }) => {
 
   await pm.mainPage.open(url);
   await pm.header.goToRegister();
-  await pm.registrationPage.registration (newUser.userName, newUser.userEmail, newUser.userPassword);
-  await expect(page.getByText(newUser.userName)).toBeVisible();
+  await pm.registrationPage.registration(newUser.userName, newUser.userEmail, newUser.userPassword);
+  await expect(pm.header.headerDropDown).toContainText(newUser.userName);
+
 });
+
+
 });
 
 test.describe('Работа с профилем', () => {
@@ -36,8 +39,8 @@ test.describe('Работа с профилем', () => {
     await pm.settingsPage.updateProfile(newUser.userName, newUser.userBio, newUser.userEmail)
 
 
-    await expect(page.getByPlaceholder('Your Name')).toHaveValue(newUser.userName);
-    await expect(page.getByPlaceholder('Short bio about you')).toHaveValue(newUser.userBio);
+    await expect(pm.settingsPage.nameField).toHaveValue(newUser.userName);
+    await expect(pm.settingsPage.bioField).toHaveValue(newUser.userBio);
 
 });
 });

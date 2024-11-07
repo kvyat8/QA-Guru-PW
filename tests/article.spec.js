@@ -15,7 +15,8 @@ test.describe('Работа со статьями', () => {
     await pm.mainPage.open(url);
     await pm.header.goToRegister();
     await pm.registrationPage.registration (newUser.userName, newUser.userEmail, newUser.userPassword);
-    await expect(page.getByText(newUser.userName)).toBeVisible();
+    await expect(pm.header.headerDropDown).toContainText(newUser.userName);
+
   });
 
 
@@ -54,7 +55,7 @@ test('Публиукация коммента', async ({ page }) => {
   await pm.header.goToNewArticle();
   await pm.editorPage.publishArticle (newArticle.title, newArticle.description, newArticle.text, newArticle.tags);
   await pm.articlePage.postComment(newArticle.comment);
-  await expect(page.getByText(newArticle.comment)).toBeVisible();
+  await expect(pm.articlePage.getArticleCommentLocator(newArticle.comment)).toContainText(newArticle.comment);
 
 });
 
@@ -69,7 +70,9 @@ test('Удаление статьи', async ({ page }) => {
 
   await pm.page.on('dialog', dialog => dialog.accept());
   await pm.articlePage.deleteArticle();
-  await expect(page.getByText('Articles not available.')).toBeVisible();
+
+  await expect(pm.articlePage.articleNotAvailableMessage).toContainText('Articles not available.');
+  await expect(pm.articlePage.articleNotAvailableMessage).toBeVisible();
 });
 
 test('Нельзя создать статью с таким-же заголовком', async ({ page }) => {
@@ -83,7 +86,8 @@ test('Нельзя создать статью с таким-же заголов
   await pm.mainPage.open(url);
   await pm.header.goToNewArticle();
   await pm.editorPage.publishArticle (newArticle.title, newArticle.description, newArticle.text, newArticle.tags);
-  await expect(page.locator('form')).toContainText('Title already exists..');
+  await expect(pm.editorPage.titleAlreadyExistMessage).toBeVisible();
+  await expect(pm.editorPage.titleAlreadyExistMessage).toContainText('Title already exists..');
 
 });
 

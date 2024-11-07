@@ -11,10 +11,8 @@ export class ArticlePage extends BasePage {
         this.articleCommentField = this.page.getByPlaceholder('Write a comment...'),
         this.postCommentButton = this.page.getByRole('button', { name: 'Post Comment' }),
         this.articleTitle = this.page.getByRole('heading'),
-        this.articleText = this.page.getByRole('main')
-
-        
-
+        this.articleText = this.page.getByRole('main'),
+        this.articleNotAvailableMessage = this.page.getByText('Articles not available.')
     }
 
     async goToEditArticle () {
@@ -32,4 +30,11 @@ export class ArticlePage extends BasePage {
         await this.deleteArticleButton.click();
 
     } 
+
+    getArticleCommentLocator (commentText) {
+
+        return this.page.getByText(commentText);
+
+    } 
+
 }

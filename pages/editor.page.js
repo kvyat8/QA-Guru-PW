@@ -7,7 +7,8 @@ export class EditorPage {
         this.articleText = this.page.getByPlaceholder('Write your article (in'),
         this.articleTags = this.page.getByPlaceholder('Enter tags'),
         this.articlePublishButton = this.page.getByRole('button', { name: 'Publish Article' })
-        this.articleUpdateButton = this.page.getByRole('button', { name: 'Update Article' })
+        this.articleUpdateButton = this.page.getByRole('button', { name: 'Update Article' }),
+        this.titleAlreadyExistMessage = this.page.locator('form')
     }
 
     async publishArticle (title, description, text, tags) {

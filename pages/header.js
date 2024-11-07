@@ -7,8 +7,9 @@ export class Header {
         this.loginButton = this.page.getByRole('link', { name: 'Login' })
         this.newArticleButton = this.page.getByRole('link', { name: 'New Article' });
         this.headerDropDown = this.page.locator('.dropdown-toggle');
-        this.settingsButton = this.page.getByRole('link', { name: 'Settings', exact: true });
-        this.profileButton = this.page.getByRole('link', { name: 'Profile', exact: true });
+        this.settingsButton = this.page.getByRole('link', { name: 'Settings', exact: true }),
+        this.profileButton = this.page.getByRole('link', { name: 'Profile', exact: true }),
+        this.profileIndicator = this.page.getByRole('navigation')
     }
 
     async goToRegister () {
