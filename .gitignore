@@ -1,7 +1,8 @@
 node_modules/
-.idea/
+/.idea/
 /test-results/
 /allure-results/
+/allure-report/
 /tests-examples/
 /playwright-report/
 /blob-report/
